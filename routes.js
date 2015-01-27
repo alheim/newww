@@ -68,76 +68,11 @@ var unauthenticatedRoutes = [
     method: "GET",
     handler: require('./facets/company/show-homepage')
   },{
-    path: "/contact",
-    method: "GET",
-    handler: require('./facets/company/show-contact')
-  },{
-    path: "/send-contact",
-    method: "POST",
-    handler: require('./facets/company/show-send-contact')(config.user.mail)
-  },{
-    path: "/support",
-    method: "GET",
-    handler: require('./facets/company/show-contact')
-  },{
     path: "/policies/{policy?}",
     method: "GET",
     handler: require('./facets/company/show-policy')
-  },{
-    path: "/whoshiring",
-    method: "GET",
-    handler: require('./facets/company/show-whoshiring')
-  },{
-    path: "/joinwhoshiring",
-    method: "GET",
-    handler: require('./facets/company/show-whoshiring-payments')(config.stripe),
-    config: {
-      plugins: {
-        blankie: {
-          scriptSrc: ['self', 'unsafe-eval', 'https://www.google-analytics.com', 'https://checkout.stripe.com'],
-          frameSrc: 'https://checkout.stripe.com'
-        }
-      }
-    }
-  },{
-    path: "/joinwhoshiring",
-    method: "POST",
-    handler: require('./facets/company/show-whoshiring-payments')(config.stripe),
-    config: {
-      plugins: {
-        // tolerate Ajax
-        crumb: {
-          source: 'payload',
-          restful: true
-        }
-      }
-    }
-  },{
-    path: "/enterprise",
-    method: "GET",
-    handler: require('./facets/enterprise/show-index'),
-    config: enterpriseConfig
-  },{
-    path: "/enterprise-start-signup",
-    method: "POST",
-    handler: require('./facets/enterprise/show-ula'),
-    config: enterpriseConfig
-  },{
-    path: "/enterprise-contact-me",
-    method: "POST",
-    handler: require('./facets/enterprise/show-contact-me'),
-    config: enterpriseConfig
-  },{
-    path: "/enterprise-trial-signup",
-    method: "POST",
-    handler: require('./facets/enterprise/show-trial-signup'),
-    config: enterpriseConfig
-  },{
-    path: "/enterprise-verify",
-    method: "GET",
-    handler: require('./facets/enterprise/show-verification'),
-    config: enterpriseConfig
-  },{
+  },
+  {
     path: "/package/{package}/{version?}",
     method: "GET",
     handler: require('./facets/registry/show-package')

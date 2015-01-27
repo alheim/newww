@@ -105,8 +105,8 @@ config.enterpriseCspScriptSrc = config.csp.scriptSrc.concat(
 
 // ===== service options =====
 config.couch = {
-  "couchAuth": "admin:admin",
-  "registryCouch": "http://localhost:15984/"
+  "couchAuth": "admin:synthesio1",
+  "registryCouch": "http://npm.synthesio.net:5984/"
 };
 
 config.session = {
